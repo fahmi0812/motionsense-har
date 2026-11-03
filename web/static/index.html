@@ -1,0 +1,16 @@
+<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MotionSense - Pengenalan Aktivitas</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="style.css"></head><body>
+<header><h1>MotionSense</h1><span id="mode"></span>
+<nav><a href="index.html" class="on">Prediksi</a><a href="evaluasi.html">Evaluasi CNN vs RF</a></nav></header>
+<main>
+<section class="card"><h2>1. Pilih sesi</h2>
+ <div class="row"><select id="sesi"></select><button id="btnSesi">Prediksi sesi</button><button id="btnReload">Muat ulang</button></div>
+ <div class="row">atau unggah CSV (kolom <code>ts</code>/<code>time</code>, ax,ay,az,gx,gy,gz):
+  <input type="file" id="file" accept=".csv"><button id="btnCsv">Prediksi CSV</button></div>
+ <p id="status"></p></section>
+<section class="card"><h2>2. Sinyal sensor (acc dalam g, gyro rad/s)</h2><canvas id="cSig" height="110"></canvas></section>
+<section class="card"><h2>3. Timeline prediksi per window (2,56 s)</h2><canvas id="cTime" height="90"></canvas></section>
+<section class="card"><h2>4. Ringkasan durasi per aktivitas</h2><div class="row2"><canvas id="cDur" height="160"></canvas><table id="tDur"></table></div></section>
+</main><script src="app.js"></script></body></html>

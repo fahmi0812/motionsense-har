@@ -1,0 +1,8 @@
+{
+  "publik": 1500,
+  "privat": 500,
+  "persen": {
+    "publik": 75.0,
+    "privat": 25.0
+  }
+}

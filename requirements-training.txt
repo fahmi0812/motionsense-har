@@ -1,0 +1,14 @@
+# Untuk TRAINING di laptop (Python 3.10-3.13). torch versi CPU (lebih kecil):
+#   pip install torch==2.15.0 --index-url https://download.pytorch.org/whl/cpu
+#   pip install -r requirements-training.txt
+torch==2.15.0
+numpy==2.5.4
+pandas==3.1.0
+scikit-learn==1.9.1
+matplotlib==3.11.2
+joblib==1.6.0
+onnx==1.23.2
+onnxscript==0.7.2
+onnxruntime==1.31.1
+httpx==0.28.1
+python-dotenv==1.2.4

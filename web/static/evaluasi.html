@@ -1,0 +1,28 @@
+<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MotionSense - Evaluasi</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="style.css"></head><body>
+<header><h1>MotionSense</h1><nav><a href="index.html">Prediksi</a><a href="evaluasi.html" class="on">Evaluasi CNN vs RF</a></nav></header>
+<main><section class="card"><p id="catatan" class="warn"></p><div id="komp"></div></section><div id="isi"></div></main>
+<script>
+const API = window.API_BASE || "";
+const LBL = ["WALKING","WALKING_UPSTAIRS","WALKING_DOWNSTAIRS","SITTING","STANDING","LAYING"];
+const NAMA = {A_publik_ke_privat:"Skenario A: latih publik → uji privat", B_campuran:"Skenario B: campuran (pisah per subjek/sesi)"};
+fetch(API+"/api/metrics").then(r=>r.json()).then(m=>{
+  document.getElementById("catatan").textContent = m.catatan;
+  const k=m.komposisi; document.getElementById("komp").innerHTML=`Komposisi: publik ${k.publik} window, privat ${k.privat} window (${k.persen.publik}% / ${k.persen.privat}%)`;
+  const isi=document.getElementById("isi");
+  for (const s of Object.keys(NAMA)) { const d=m[s]; if(!d) continue;
+    const sec=document.createElement("section"); sec.className="card";
+    sec.innerHTML=`<h2>${NAMA[s]}</h2><p>Latih ${d.n_latih} window, uji ${d.cnn.n_uji} window</p>
+    <table><tr><th></th><th>Akurasi</th><th>F1 makro</th></tr>
+    <tr><td>CNN</td><td>${(d.cnn.accuracy*100).toFixed(1)}%</td><td>${d.cnn.f1_macro}</td></tr>
+    <tr><td>Random Forest</td><td>${(d.rf.accuracy*100).toFixed(1)}%</td><td>${d.rf.f1_macro}</td></tr></table>
+    <canvas id="f_${s}" height="90"></canvas>
+    <div class="row2"><img src="${API}/model/cm_${s}_cnn.png"><img src="${API}/model/cm_${s}_rf.png"></div>`;
+    isi.appendChild(sec);
+    new Chart(document.getElementById("f_"+s),{type:"bar",data:{labels:LBL,datasets:[
+      {label:"F1 CNN",data:LBL.map(l=>d.cnn.f1_per_kelas[l])},{label:"F1 RF",data:LBL.map(l=>d.rf.f1_per_kelas[l])}]},
+      options:{scales:{y:{min:0,max:1}}}});
+  }});
+</script></body></html>

@@ -1,0 +1,280 @@
+{
+  "catatan": "PERHATIAN: data privat = DUMMY/SINTETIS (make_dummy_private.py), angka uji privat BUKAN hasil asli",
+  "komposisi": {
+    "publik": 1500,
+    "privat": 500,
+    "persen": {
+      "publik": 75.0,
+      "privat": 25.0
+    }
+  },
+  "A_publik_ke_privat": {
+    "cnn": {
+      "accuracy": 0.694,
+      "f1_macro": 0.6335,
+      "f1_per_kelas": {
+        "WALKING": 0.2642,
+        "WALKING_UPSTAIRS": 0.5367,
+        "WALKING_DOWNSTAIRS": 0.0,
+        "SITTING": 1.0,
+        "STANDING": 1.0,
+        "LAYING": 1.0
+      },
+      "confusion_matrix": [
+        [
+          14,
+          70,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          84,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          8,
+          75,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          83,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          83,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          83
+        ]
+      ],
+      "n_uji": 500
+    },
+    "rf": {
+      "accuracy": 0.728,
+      "f1_macro": 0.682,
+      "f1_per_kelas": {
+        "WALKING": 0.5526,
+        "WALKING_UPSTAIRS": 0.5391,
+        "WALKING_DOWNSTAIRS": 0.0,
+        "SITTING": 1.0,
+        "STANDING": 1.0,
+        "LAYING": 1.0
+      },
+      "confusion_matrix": [
+        [
+          84,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          53,
+          31,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          83,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          83,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          83,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          83
+        ]
+      ],
+      "n_uji": 500
+    },
+    "n_latih": 1500,
+    "detik_latih_cnn": 7.6
+  },
+  "B_campuran": {
+    "cnn": {
+      "accuracy": 0.9036,
+      "f1_macro": 0.9066,
+      "f1_per_kelas": {
+        "WALKING": 0.9223,
+        "WALKING_UPSTAIRS": 0.9246,
+        "WALKING_DOWNSTAIRS": 0.9651,
+        "SITTING": 0.7882,
+        "STANDING": 0.8393,
+        "LAYING": 1.0
+      },
+      "confusion_matrix": [
+        [
+          89,
+          12,
+          3,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          92,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          3,
+          83,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          67,
+          32,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          4,
+          94,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          81
+        ]
+      ],
+      "n_uji": 560
+    },
+    "rf": {
+      "accuracy": 0.8482,
+      "f1_macro": 0.8535,
+      "f1_per_kelas": {
+        "WALKING": 0.72,
+        "WALKING_UPSTAIRS": 0.7391,
+        "WALKING_DOWNSTAIRS": 0.8553,
+        "SITTING": 0.8973,
+        "STANDING": 0.9091,
+        "LAYING": 1.0
+      },
+      "confusion_matrix": [
+        [
+          63,
+          37,
+          4,
+          0,
+          0,
+          0
+        ],
+        [
+          6,
+          85,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          16,
+          68,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          83,
+          16,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          3,
+          95,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          81
+        ]
+      ],
+      "n_uji": 560
+    },
+    "n_latih": 1440,
+    "detik_latih_cnn": 4.5,
+    "subjek_uji_uci": [
+      2,
+      5,
+      12,
+      14,
+      21,
+      27
+    ],
+    "jumlah_sesi_privat_uji": 6
+  }
+}

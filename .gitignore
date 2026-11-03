@@ -1,0 +1,22 @@
+# Secrets
+.env
+.env.*
+!.env.example
+# Envs / caches
+.venv*/
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+# Raw datasets (download via training/01_siapkan_publik.py)
+data/UCI HAR Dataset/
+data/__MACOSX/
+data/*.zip
+data/*.names
+data/*.npz
+data/privat_csv/
+*.zip
+# Large checkpoints
+*.ckpt
+*.pth
+checkpoints/
